@@ -1,4 +1,4 @@
-package com.fortisgames.events;
+package com.circusofvalue.events;
 
 public class Event {
     private String gameName;

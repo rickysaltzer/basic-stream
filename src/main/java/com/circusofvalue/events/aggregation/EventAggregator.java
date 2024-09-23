@@ -1,6 +1,6 @@
-package com.fortisgames.events.aggregation;
+package com.circusofvalue.events.aggregation;
 
-import com.fortisgames.events.Event;
+import com.circusofvalue.events.Event;
 
 public interface EventAggregator {
 

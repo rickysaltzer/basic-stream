@@ -1,4 +1,4 @@
-package com.fortisgames.events.aggregation;
+package com.circusofvalue.events.aggregation;
 
 public class AggregationResult {
     private String gameName;

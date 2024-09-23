@@ -1,7 +1,6 @@
-package com.fortisgames.events.aggregation;
+package com.circusofvalue.events.aggregation;
 
-import com.fortisgames.events.Event;
-import com.fortisgames.events.aggregation.AggregationResult;
+import com.circusofvalue.events.Event;
 
 public class InMemoryEventAggregator implements EventAggregator{
     /**

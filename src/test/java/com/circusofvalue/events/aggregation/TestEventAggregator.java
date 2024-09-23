@@ -1,10 +1,10 @@
-package com.fortisgames.events.aggregation;
+package com.circusofvalue.events.aggregation;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.fortisgames.events.Event;
+import com.circusofvalue.events.Event;
 
 public class TestEventAggregator {
     @Test
