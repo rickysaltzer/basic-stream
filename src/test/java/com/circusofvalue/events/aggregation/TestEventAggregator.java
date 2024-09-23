@@ -10,7 +10,7 @@ public class TestEventAggregator {
     @Test
     public void consumeAndAggregateSingleEvent() {
 
-        EventAggregator agg = new CompletedEventAggregator();
+        EventAggregator agg = new InMemoryEventAggregator();
         Event event = new Event("game1", "event1", 500L);
         agg.collectEvent(event);
         assertNull(agg.getAggregationResult("noGame", "shouldBeNull"));
@@ -24,7 +24,7 @@ public class TestEventAggregator {
 
     @Test
     public void consumeAndAggregateMultipleEvents() {
-        EventAggregator agg = new CompletedEventAggregator();
+        EventAggregator agg = new InMemoryEventAggregator();
         agg.collectEvent(new Event("game1", "event1", 500));
         agg.collectEvent(new Event("game1", "event1", 750));
         agg.collectEvent(new Event("game1", "event1", 250));
