@@ -77,6 +77,22 @@ public class TestEventAggregator {
         assertEquals(1200L, result.getLatestTimestamp());
         assertEquals(1, result.getTotalEvents());
         assertEquals(1, result.getUniqueTimestamps());
+    }
 
+    @Test
+    public void testWeakKeys() {
+        EventAggregator agg = new WeakEventAggregator();
+        agg.collectEvent(new Event("game1", "event1", 500));
+        agg.collectEvent(new Event("game", "1event1", 750));
+
+        AggregationResult result = agg.getAggregationResult("game1", "event1");
+        assertEquals("game1", result.getGameName());
+        assertEquals("event1", result.getEventName());
+        assertEquals(1, result.getTotalEvents());
+
+        result = agg.getAggregationResult("game", "1event1");
+        assertEquals("game", result.getGameName());
+        assertEquals("1event1", result.getEventName());
+        assertEquals(1, result.getTotalEvents());
     }
 }
