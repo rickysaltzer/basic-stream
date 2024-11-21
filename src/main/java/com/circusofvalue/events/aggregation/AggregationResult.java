@@ -17,6 +17,15 @@ public class AggregationResult {
         this.uniqueTimestamps = uniqueTimestamps;
     }
 
+    public AggregationResult(String gameName, String eventName, long initTimestamp) {
+        this.eventName = eventName;
+        this.gameName = gameName;
+        this.earliestTimestamp = initTimestamp;
+        this.latestTimestamp = initTimestamp;
+        this.totalEvents = 1;
+        this.uniqueTimestamps = 1;
+    }
+
     public String getGameName() {
         return gameName;
     }
@@ -57,11 +66,25 @@ public class AggregationResult {
         this.latestTimestamp = latestTimestamp;
     }
 
+    public void updateTimestamps(long latestTimestamp) {
+        if (latestTimestamp > this.latestTimestamp) {
+            this.latestTimestamp = latestTimestamp;
+        }
+
+        if (latestTimestamp < this.earliestTimestamp) {
+            this.earliestTimestamp = latestTimestamp;
+        }
+    }
+
     public long getTotalEvents() {
         return totalEvents;
     }
 
     public void setTotalEvents(long totalEvents) {
         this.totalEvents = totalEvents;
+    }
+
+    public void incTotalEvents() {
+        this.totalEvents++;
     }
 }
