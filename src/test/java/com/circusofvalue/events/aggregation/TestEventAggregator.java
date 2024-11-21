@@ -81,7 +81,7 @@ public class TestEventAggregator {
 
     @Test
     public void testWeakKeys() {
-        EventAggregator agg = new WeakEventAggregator();
+        EventAggregator agg = new InMemoryEventAggregator();
         agg.collectEvent(new Event("game1", "event1", 500));
         agg.collectEvent(new Event("game", "1event1", 750));
 
